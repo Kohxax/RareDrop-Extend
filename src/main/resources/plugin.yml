@@ -1,0 +1,4 @@
+name: RareDrop-Extends
+version: '1.0-SNAPSHOT'
+main: dev.bokukoha.rareDropExtends.RareDropExtends
+api-version: '1.21'
