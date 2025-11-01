@@ -61,7 +61,9 @@ object ItemFactory {
                 addModifier(plugin, meta, Attribute.ATTACK_DAMAGE, "elder_attack_head", 20.0, AttributeModifier.Operation.ADD_NUMBER, EquipmentSlotGroup.HEAD)
                 addModifier(plugin, meta, Attribute.MAX_HEALTH,   "elder_health_head",  -18.0, AttributeModifier.Operation.ADD_NUMBER, EquipmentSlotGroup.HEAD)
                 meta.lore = listOf(
-                    "§6強大な力が宿るエルダーガーディアンの心臓。強力な攻撃力の代償に体力が削られる…。"
+                    "§6強大な力が宿る",
+                    "§6エルダーガーディアンの心臓。",
+                    "§6強力な攻撃力の代償に体力が削られる…。"
                 )
             }
             ArtifactType.MINE -> {
@@ -71,17 +73,20 @@ object ItemFactory {
                 addModifier(plugin, meta, Attribute.BLOCK_INTERACTION_RANGE, "ancient_reach_head", 2.0, AttributeModifier.Operation.ADD_NUMBER, EquipmentSlotGroup.HEAD)
                 addModifier(plugin, meta, Attribute.SAFE_FALL_DISTANCE,      "ancient_fall_head",  5.0, AttributeModifier.Operation.ADD_NUMBER, EquipmentSlotGroup.HEAD)
                 meta.lore = listOf(
-                    "§6古代文明の遺物。建築で役立つ加護が受けられるらしい…?"
+                    "§6古代文明の遺物。",
+                    "§6建築で役立つ加護が受けられるらしい…?"
                 )
             }
             ArtifactType.SLAY -> {
                 meta.addEnchant(Enchantment.SMITE, 5, true)
-                addModifier(plugin, meta, Attribute.MOVEMENT_SPEED, "ender_speed", 0.50, AttributeModifier.Operation.ADD_SCALAR, EquipmentSlotGroup.HAND)
+                addModifier(plugin, meta, Attribute.MOVEMENT_SPEED, "ender_speed", 0.80, AttributeModifier.Operation.ADD_SCALAR, EquipmentSlotGroup.HAND)
                 addModifier(plugin, meta, Attribute.ATTACK_DAMAGE,   "ender_damage", -10.0, AttributeModifier.Operation.ADD_NUMBER, EquipmentSlotGroup.HAND)
-                addModifier(plugin, meta, Attribute.MOVEMENT_SPEED, "ender_speed_head", 0.50, AttributeModifier.Operation.ADD_SCALAR, EquipmentSlotGroup.HEAD)
+                addModifier(plugin, meta, Attribute.MOVEMENT_SPEED, "ender_speed_head", 0.80, AttributeModifier.Operation.ADD_SCALAR, EquipmentSlotGroup.HEAD)
                 addModifier(plugin, meta, Attribute.ATTACK_DAMAGE,   "ender_damage_head", -10.0, AttributeModifier.Operation.ADD_NUMBER, EquipmentSlotGroup.HEAD)
                 meta.lore = listOf(
-                    "§6エンダードラゴンの一部から作られた羽。移動速度が飛躍的に向上するが、攻撃力が大幅に低下する…。"
+                    "§6エンダードラゴンの一部から作られた羽。",
+                    "§6移動速度が飛躍的に向上するが、",
+                    "§6攻撃力が大幅に低下する…。"
                 )
             }
         }
