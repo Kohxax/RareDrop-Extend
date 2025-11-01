@@ -18,8 +18,7 @@ class MiningListener(private val plugin: JavaPlugin) : Listener {
         val block = e.block
         val type = ArtifactType.MINE
 
-        // 石・深層岩のみ対象
-        if (block.type != Material.STONE && block.type != Material.DEEPSLATE) return
+        if (!isTargetBlock(block.type)) return
         if (!ArtifactUtils.shouldDrop(type.dropChance)) return
 
         val parts = listOf(
@@ -32,5 +31,18 @@ class MiningListener(private val plugin: JavaPlugin) : Listener {
         val item = ItemFactory.createPart(plugin, id, name, mat)
         ArtifactUtils.dropWithEffects(plugin, player, item, "地底から古代の遺物を掘り当てた！")
         player.world.playSound(player.location, Sound.BLOCK_BEACON_POWER_SELECT, 1f, 1.2f)
+    }
+
+    private fun isTargetBlock(material: Material): Boolean {
+        return when (material) {
+            Material.STONE,
+            Material.DEEPSLATE,
+            Material.GRASS_BLOCK,
+            Material.DIRT,
+            Material.SAND,
+            Material.GRAVEL -> true
+
+            else -> false
+        }
     }
 }
