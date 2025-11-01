@@ -52,7 +52,6 @@ object ItemFactory {
 
         val meta = item.itemMeta!!
         meta.setDisplayName(type.displayName)
-        meta.addEnchant(Enchantment.VANISHING_CURSE, 1, true)
 
         when (type) {
             ArtifactType.FISH -> {
