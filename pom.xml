@@ -6,7 +6,7 @@
 
     <groupId>dev.bokukoha</groupId>
     <artifactId>raredrop-extends</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0.0</version>
     <packaging>jar</packaging>
 
     <name>raredrop-extends</name>

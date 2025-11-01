@@ -1,4 +1,6 @@
-name: RareDrop-Extends
-version: '1.0-SNAPSHOT'
-main: dev.bokukoha.rareDropExtends.RareDropExtends
-api-version: '1.21'
+name: RareDropExtends
+main: dev.bokukoha.rareDropExtends.ArtifactPlugin
+version: 1.0.0
+api-version: 1.21
+author: bokukoha
+
