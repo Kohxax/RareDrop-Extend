@@ -29,7 +29,7 @@ class CombatListener(private val plugin: JavaPlugin) : Listener {
         val (id, name, mat) = parts.random()
 
         val item = ItemFactory.createPart(plugin, id, name, mat)
-        ArtifactUtils.dropWithEffects(plugin, killer, item, "空気が揺らめき、世界が震えた。")
+        ArtifactUtils.dropWithEffects(plugin, killer, item, "特別なアイテムがドロップしたようだ……")
         killer.world.playSound(killer.location, Sound.ENTITY_ENDER_DRAGON_GROWL, 1f, 0.8f)
     }
 }

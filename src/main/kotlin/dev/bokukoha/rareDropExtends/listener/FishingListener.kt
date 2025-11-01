@@ -33,7 +33,7 @@ class FishingListener(private val plugin: JavaPlugin) : Listener {
         val item = ItemFactory.createPart(plugin, id, displayName, material)
 
         // 演出付きでドロップ
-        ArtifactUtils.dropWithEffects(plugin, player, item, "海がざわめいた気がする...")
+        ArtifactUtils.dropWithEffects(plugin, player, item, "海から宝物を釣り上げた！")
         player.world.playSound(player.location, Sound.UI_TOAST_CHALLENGE_COMPLETE, 1f, 1f)
     }
 }
