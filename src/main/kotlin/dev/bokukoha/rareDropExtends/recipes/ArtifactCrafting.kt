@@ -17,7 +17,7 @@ class ArtifactCrafting(private val plugin: JavaPlugin) : Listener {
     fun onCraft(e: PrepareItemCraftEvent) {
         val player = e.view.player as? Player ?: return
         val items = e.inventory.matrix.filterNotNull()
-        if (items.size < 3) return
+        if (items.isEmpty()) return
 
         val foundIds = items.mapNotNull {
             it.itemMeta?.persistentDataContainer?.get(
@@ -26,13 +26,27 @@ class ArtifactCrafting(private val plugin: JavaPlugin) : Listener {
             )
         }
 
+        if (foundIds.isEmpty()) return
+
+        if (foundIds.size != 3) {
+            e.inventory.result = null
+            return
+        }
+
+        val uniqueIds = foundIds.toSet()
+        if (uniqueIds.size < 3) {
+            e.inventory.result = null
+            return
+        }
+
         for (type in ArtifactType.values()) {
-            if (foundIds.containsAll(type.parts)) {
+            if (uniqueIds.containsAll(type.parts.toSet())) {
                 val result = ItemFactory.createResult(plugin, type)
 
                 val meta = result.itemMeta!!
                 val lore = meta.lore?.toMutableList() ?: mutableListOf()
-                lore.add("§4Crafted by ${player.name}")
+                lore.add("§8Crafted by §b${player.name}")
+                lore.add("§7${LocalDate.now()}")
                 meta.lore = lore
 
                 meta.persistentDataContainer.set(
@@ -50,4 +64,3 @@ class ArtifactCrafting(private val plugin: JavaPlugin) : Listener {
         e.inventory.result = null
     }
 }
-
